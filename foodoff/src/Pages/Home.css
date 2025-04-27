@@ -1,0 +1,39 @@
+.row{
+    margin-left: 20px;
+    color: #d82020;
+    border-radius: 50px;
+}
+
+.posters{
+    display: flex;
+    padding: 20px;
+    overflow-x: scroll;
+    overflow-y:hidden ;
+
+}
+
+.posters::-webkit-scrollbar{
+    display: none;
+}
+
+
+.poster{
+    max-height: 210px;
+    margin-right: 10px;
+    border-radius: 50px;
+
+}
+.col-12{
+    margin-bottom: 20px;
+    padding: 20px;
+   
+}
+.rounded{
+    border-radius: 50px;
+}
+.col-12{
+    color: aliceblue;
+}
+.flex-container{
+    display: flex;
+}

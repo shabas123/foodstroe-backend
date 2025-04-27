@@ -1,0 +1,86 @@
+.fa-plus{
+    color: green;
+    margin: 5px;
+}
+.fa-minus{
+    color: red;
+    margin: 5px;
+}
+.fa-trash{
+    color: red;
+}
+.navbar {
+    background-color: #0b0c4c;
+
+  }
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .navbar a.active {
+    text-decoration: underline;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+  }
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  .delivered {
+    color: green;
+    font-weight: bold;
+  }
+  td , th , tr {
+    text-align: left;
+  }
+/* .bg{
+    background: url(https://gorestaurant.in/storage/uploads/gorestaurant-bg.png);
+    background-size: cover;
+    background-position: right;
+    background-attachment: fixed;
+   
+  } */
+   .nav-hover:hover{
+    color: red !important; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+   }
+   .adminfuntions{
+    padding: 10px;
+    background-color: brown;
+   
+   }
+   .adminfuntions li{
+     list-style-type: none !important;
+     display: inline;
+     color: white;
+   }
+   .adminfuntions li a{
+    color: #ddd;
+    padding: 20px;
+   }
+   .card {
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+  .admin-functions li a {
+    color: #dbdfe3;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .admin-functions li a:hover {
+    color: #cc0e24;
+    text-decoration: underline;
+  }
+  

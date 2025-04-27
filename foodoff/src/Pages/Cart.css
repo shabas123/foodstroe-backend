@@ -1,0 +1,168 @@
+
+    
+.order-header {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    color: #333; 
+    border-radius: 20px;
+    
+}
+
+.cart-items-container {
+  overflow-y: auto;
+  max-height: calc(100vh - 250px);
+  flex-grow: 1;
+  padding-right: 5px;
+  margin-bottom: 10px;
+}
+
+.item-image-container {
+    margin-right: 20px;
+}
+
+.item-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+
+.item-name {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: #333;
+    font-size: 30px;
+}
+
+.item-name small {
+    font-size: 20px;
+    color: #333;
+}
+
+.item-price {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 25px;
+    
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 20px;
+    border: none;
+    color: black;
+}
+
+.quantity-control svg {
+    cursor: pointer;
+    color: #333;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.quantity-control svg:hover {
+  color: #333;
+}
+
+.quantity-value {
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+
+.item-actions {
+    margin-left: 15px;
+}
+
+.delete-icon {
+    cursor: pointer;
+    color: #ff4444;
+    font-size: 20px;
+     border-radius: 20px;
+    
+}
+
+.order-summary {
+    background: #f8f5f5;
+    padding: 20px;
+    border-radius: 40px;
+    margin-top: 20px;
+    
+}
+
+.subtotal {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.order-button {
+    background: green;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 80px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.order-button:hover {
+    background: #cc0000;
+
+
+}
+
+
+/* Scrollbar styling */
+.cart-items-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.cart-items-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.cart-items-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.cart-items-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+
+.cart-item-container {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  border: none; /* Remove border if any */
+}
+
+/* ... rest of your existing CSS ... */
+
+@media (max-width: 768px) {
+  .cart-items-container {
+      max-height: none;
+      overflow-y: visible;
+  }
+  
+  .order-summary {
+      height: auto;
+  }
+}
