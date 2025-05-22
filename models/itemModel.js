@@ -10,7 +10,7 @@ const itemSchema = new mongoose.Schema({
   varients: {
     type: [String],
     required: true,
-    varients: ['small', 'medium', 'large']
+    varients: ['quater', 'half', 'full']
   },
   prices: [{
     small: {
