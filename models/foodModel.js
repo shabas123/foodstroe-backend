@@ -9,18 +9,18 @@ const foodSchema = mongoose.Schema({
   varients: {
     type: [String],
     required: true,
-    enum: ['small', 'medium', 'large']
+    enum: ['Quater', 'Half', 'Full']
   },
   prices: [{
-    smallz: {
+    Quater: {
       type: Number,
       required: true
     },
-    medium: {
+    Half: {
       type: Number,
       required: true
     },
-    large: {
+    Full: {
       type: Number,
       required: true
     }

@@ -32,7 +32,7 @@ export default function EditItem({ items }) {
   const [itemDetails, setItemDetails] = useState({
     name: items?.name,
     varients: items?.varients || [],
-    prices: items?.prices ? items.prices[0] : { small: '', medium: '', large: '' },
+    prices: items?.prices ? items.prices[0] : { Quater: '', Half: '', Full: '' },
     category: items?.category,
     image: items?.image,
   })
@@ -104,21 +104,21 @@ export default function EditItem({ items }) {
                     value={itemDetails.varients.join(', ')}
                     type="text"
                     className='form-control'
-                    placeholder='Varients (ഉദാ: small, medium, large)'
+                    placeholder='Varients '
                   />
                 </div>
                 <div className="mb-3">
-                  <input onChange={(e) => setItemDetails({ ...itemDetails, prices: { ...itemDetails.prices, small: e.target.value } })} value={itemDetails.prices.small} type="text" className='form-control' placeholder='Small prices' />
+                  <input onChange={(e) => setItemDetails({ ...itemDetails, prices: { ...itemDetails.prices, Quater: e.target.value } })} value={itemDetails.prices.Quater} type="text" className='form-control' placeholder='Quater prices' />
                 </div>
                 <div className='mb-3'>
                   <input
                     type="text"
                     className='form-control mb-1'
-                    placeholder='Medium Price'
-                    value={itemDetails.prices.medium}
+                    placeholder='Half Price'
+                    value={itemDetails.prices.Half}
                     onChange={(e) => setItemDetails({
                       ...itemDetails,
-                      prices: { ...itemDetails.prices, medium: e.target.value }
+                      prices: { ...itemDetails.prices, Half: e.target.value }
                     })}
                   />
                   <div className="mb-3">
@@ -128,11 +128,11 @@ export default function EditItem({ items }) {
                     <input
                       type="text"
                       className='form-control'
-                      placeholder='Large Price'
-                      value={itemDetails.prices.large}
+                      placeholder='Full Price'
+                      value={itemDetails.prices.Full}
                       onChange={(e) => setItemDetails({
                         ...itemDetails,
-                        prices: { ...itemDetails.prices, large: e.target.value }
+                        prices: { ...itemDetails.prices, Full: e.target.value }
                       })}
                     />
                   </div>

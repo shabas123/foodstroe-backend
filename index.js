@@ -27,7 +27,6 @@ foodstoreServer.use(appMiddleware)
 // 12. tell server to use router
 foodstoreServer.use(router)
 
-
 // 7. set port
 const PORT = 3000 || process.env.PORT  //available port
 

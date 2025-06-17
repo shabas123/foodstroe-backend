@@ -8,6 +8,7 @@ import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 export default function Register({ register }) {
   const navigate = useNavigate()
+    const [showPassword, setShowPassword] = useState(false);
   const [userDetails, setUserdetails] = useState({
     username: "",
     email: "",
@@ -25,7 +26,7 @@ export default function Register({ register }) {
       const result = await registerAPI(userDetails)
       console.log(result);
       if (result.status == 200) {
-        toast.success(`Registred successfully`)
+      alert(`Registred successfully`)
         setUserdetails({
           username: "",
           email: "",
@@ -59,7 +60,7 @@ export default function Register({ register }) {
       <div className='bg'>
 
 
-        <div className="container mt-4">
+        <div className="container mt-4" >
           <div className="row mt-4">
             <div className="col-md-4"></div>
             <div className="col-md-6 border-white rounded  mt-4">
@@ -72,7 +73,7 @@ export default function Register({ register }) {
       </div>
 
 
-      <div className="container-fluid">
+      <div className="container-fluid" >
         <div className="row align-items-center">
           <div className="col-md-1"></div>
           <div className="col-md-4">
@@ -80,18 +81,17 @@ export default function Register({ register }) {
 
             <form >
               <div>
-                <input required type="text" placeholder='name' value={userDetails.username} onChange={(e) => setUserdetails({ ...userDetails, username: e.target.value })} className='form-control mb-3 rounded-pill p-2' />
-                <input required type="text" placeholder='email' value={userDetails.email} onChange={(e) => setUserdetails({ ...userDetails, email: e.target.value })} className='form-control mb-3 rounded-pill p-2 ' />
-                <input required type="password" placeholder='password' value={userDetails.password} onChange={(e) => setUserdetails({ ...userDetails, password: e.target.value })} className='form-control mb-3 rounded-pill p-2 ' />
+                <input style={{fontWeight:"bold"}} required type="text" placeholder='name' value={userDetails.username} onChange={(e) => setUserdetails({ ...userDetails, username: e.target.value })} className='form-control mb-3 rounded-pill p-2' />
+                <input style={{fontWeight:"bold"}} required type="text" placeholder='email' value={userDetails.email} onChange={(e) => setUserdetails({ ...userDetails, email: e.target.value })} className='form-control mb-3 rounded-pill p-2 ' />
+                <input style={{fontWeight:"bold"}} required type={showPassword ? "text" : "password"} placeholder='password' value={userDetails.password} onChange={(e) => setUserdetails({ ...userDetails, password: e.target.value })} className='form-control mb-3 rounded-pill p-2 ' />
               </div>
-              {!register ? <div>
+              <div>
                 <button onClick={handleRegister} type='button' className=' w-100 btn btn-danger  w-100 rounded-pill'>Register</button>
               </div>
-                :
                 <div>
-                  <button onClick={handleLogin} type='button' className='btn btn-danger '>Login</button>
+            <a href="./login" style={{ textDecoration: 'none' }}> <h6 className=' text-center  text-primary  mt-2 fw-bold'> <span className='text-white'>alredy you have an account?</span> login</h6></a>
 
-                </div>}
+                </div>
 
             </form>
           </div>

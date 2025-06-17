@@ -7,8 +7,8 @@ import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Adminscreen from './Components/Adminscreen';
 import Order from './Components/Order';
-import Drink from './Components/Drink';
 import { useEffect, useState } from 'react';
+import CartModel from './Components/CartModel';
 
 function App() {
 
@@ -25,12 +25,12 @@ function App() {
       <Header user={user}/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route  path="/cart" element={<Cart />} />
+        <Route  path="/cartmodal" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/admin/*" element={<Adminscreen />} />
         <Route path="/order" element={<Order />} />
-        <Route path="/drink" element={<Drink />} />
       </Routes>
 
       

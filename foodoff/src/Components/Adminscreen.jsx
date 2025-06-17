@@ -13,16 +13,16 @@ export default function Adminscreen() {
       <div style={{ width: "280px", backgroundColor: "black", color: "", padding: "30px" }}> 
 
         <ul className="">
-          <li className="mb-4">
+          <li className="mb-4 d-none d-md-block">
             <Link to="/admin/user" style={{ color: "#fff", textDecoration: "none", fontSize: "25px" }}>Users</Link>
           </li>
-          <li className="mb-4">
+          <li className="mb-4 d-none d-md-block">
             <Link to="/admin/itemlist" style={{ color: "#fff", textDecoration: "none", fontSize: "25px" }}>All Items</Link>
           </li>
-          <li className="mb-4">
+          <li className="mb-4 d-none d-md-block">
             <Link to="/admin/additems" style={{ color: "#fff", textDecoration: "none", fontSize: "25px" }}>Add Item</Link>
           </li>
-          <li className="mb-4">
+          <li className="mb-4 d-none d-md-block">
             <Link to="/admin/orderlist" style={{ color: "#fff", textDecoration: "none", fontSize: "25px" }}>Orders</Link>
           </li>
          
@@ -41,5 +41,5 @@ export default function Adminscreen() {
         </Routes>
       </div>
     </div>
-  );
+  )
 }

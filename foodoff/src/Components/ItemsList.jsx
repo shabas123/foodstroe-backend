@@ -24,7 +24,7 @@ export default function ItemsList() {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:3000/all-items')
+    axios.get('https://foodstroe-backend.onrender.com/all-items')
       .then(items => setItems(items.data))
       .catch(err => console.log(err));
   }, [removeStatus, editResponse]);
@@ -38,10 +38,10 @@ export default function ItemsList() {
             <h5 className="text-center">No items found!</h5>
           ) : (
             items.map((item) => (
-              <div key={item._id} className="col-12 col-md-6 col-lg-4 mb-4 ">
+              <div key={item._id} className=" col-md-6 col-lg-4 mb-4 ">
                 <div className="card shadow-sm h-100 " style={{width:"100%"}}>
                   <img 
-                    src={item.image} 
+                    src={item.image}
                     className="card-img-top" 
                     alt={item.name} 
                     style={{ height: '100%', objectFit: 'cover', }}
@@ -50,14 +50,14 @@ export default function ItemsList() {
                     <h5 className="card-title">{item.name}</h5>
                     <p className="card-text">
                       <strong>Prices:</strong><br/>
-                      Small: ₹{item.prices[0]['small']}<br/>
-                      Medium: ₹{item.prices[0]['medium']}<br/>
-                      Large: ₹{item.prices[0]['large']}
+                      Small: ₹{item.prices[0]['Quater']}<br/>
+                      Medium: ₹{item.prices[0]['Half']}<br/>
+                      Large: ₹{item.prices[0]['Full']}
                     </p>
                     <p className="card-text">
                       <span className="btn btn-warning">{item.category}</span>
                     </p>
-                    <div className="mt-auto d-flex justify-content-between">
+                    <div className="ms-auto d-flex justify-content-between">
                       <button className="btn btn-lg" onClick={() => handleDelete(item._id)}>
                         <FontAwesomeIcon icon={faTrash} />
                       </button>

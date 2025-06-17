@@ -11,15 +11,15 @@ function AddItemForm() {
     name: '',
     varients: [],
     prices: {
-      small: '',
-      medium: '',
-      large: '',
+      Quater: '',
+      Half: '',
+      Full: '',
     },
     category: '',
     image: '',
   });
 
-  const variantOptions = ['small', 'medium', 'large'];
+  const variantOptions = ['Quater', 'Half', 'Full'];
   const categoryOptions = ['Pizza', 'Burger', 'Sandwich', 'Pasta', 'Salad', 'Sides', 'Dessert'];
 
   const handleInputChange = (e) => {
@@ -47,7 +47,7 @@ function AddItemForm() {
     e.preventDefault();
     const { name, varients, prices, category, image } = item;
 
-    if (!name || !varients.length || !prices.small || !prices.medium || !prices.large || !category || !image) {
+    if (!name || !varients.length || !prices.Quater || !prices.Half || !prices.Full || !category || !image) {
       alert('Please fill in all required fields');
       return;
     }
@@ -66,9 +66,9 @@ function AddItemForm() {
           name: '',
           varients: [],
           prices: {
-            small: '',
-            medium: '',
-            large: '',
+            Quater: '',
+            Half: '',
+            Full: '',
           },
           category: '',
           image: '',

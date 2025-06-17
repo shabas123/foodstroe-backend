@@ -12,31 +12,31 @@ function Cart() {
     const cartstate = useSelector(state => state.cartReducer);
     const cartItems = cartstate.cartItems;
     const [loggedInUser, setloggedInUser] = useState('')
-    
+
     var subtotal = cartItems.reduce((x, item) => x + item.price, 0);
     const dispatch = useDispatch();
 
     useEffect(() => {
-       if (sessionStorage.getItem("loggedInUser")) {
-         setloggedInUser(sessionStorage.getItem("loggedInUser"))
-   
-       }
-     }, [])
-   
-     const handlePlaceOrder = async () => {
-     
+        if (sessionStorage.getItem("loggedInUser")) {
+            setloggedInUser(sessionStorage.getItem("loggedInUser"))
+
+        }
+    }, [])
+
+    const handlePlaceOrder = async () => {
+
         try {
             const orderData = {
                 userId: loggedInUser,
-                items: cartItems, 
-                total: subtotal 
+                items: cartItems,
+                total: subtotal
             };
 
             const response = await orderAPI(orderData)
             if (response.status === 201) {
                 toast.success(`Your Order For Prepairing`)
-                dispatch({ type: 'CLEAR_CART' }); 
-                sessionStorage.removeItem('cartItems');   
+                dispatch({ type: 'CLEAR_CART' });
+                sessionStorage.removeItem('cartItems');
                 localStorage.removeItem('cartItems');
             }
         } catch (error) {
@@ -44,80 +44,78 @@ function Cart() {
             alert('Something went wrong. Please try again!');
         }
     };
+    
     return (
-        <div className='cart-container container-fluid mt-5 '>
-            <div className="row justify-content-center p-2 p-md-3">
-                <div className="col-12 col-md-8 col-lg-6 order-summary mb-3 mb-lg-0 pe-lg-3">
-                    <h2 className="order-header">Order Summary</h2>
-
+        <> 
+       {loggedInUser ? <div className='cart-container container-fluid ' >
+            <div className="row justify-content-center p-2 p-md-3" >
+                <div className="col-12 col-md-12 order-summary mb-3 mb-lg-0 pe-lg-3 " >
+                    <h4 className="fw-bold mb-3 text-black">Your Cart</h4>
                     <div className="cart-items-container">
                         {(!loggedInUser || cartItems.length === 0) ? (
-                           <img src="https://static.wixstatic.com/media/7742ef_dfe620d0354b471b8620fcb2c3a46e62~mv2.gif" alt=""  className='img-fluid'/>
+                            <img src="https://static.wixstatic.com/media/7742ef_dfe620d0354b471b8620fcb2c3a46e62~mv2.gif" alt="" className='img-fluid' />
                         ) : (
                             cartItems.map(item => {
                                 return (
-                                    <div key={item.id} className="cart-item-container ">
-                                       <div className="item-image-container">
-                                            <img src={item.image} alt={item.name} className="item-image img-fluid" />
+                                    <div key={item.id} className="d-flex justify-content-between align-items-center border-bottom py-2">
+                                        <div className="item-image-container">
+                                            <img src={item.image} className="item-image img-fluid " />
                                         </div>
 
-                                        <div className="item-details">
-                                            <h3 className="item-name">{item.name} <small>[{item.varient}]</small></h3>
-                                            <p className="item-price">{item.quantity} × ₹{item.prices[0][item.varient]} = ₹{item.price}</p>
 
-                                            <div className="quantity-control">
-                                                <span className="quantity-label">Quantity: </span>
-                                                <div className="quantity-buttons">
-                                                    <button 
-                                                        className="quantity-button btn border"
-                                                        onClick={() => dispatch(addToCart(item, item.quantity - 1, item.varient))}
-                                                        aria-label=""
-                                                    >
-                                                        <FontAwesomeIcon icon={faMinus} />
+                                        <div className="d-flex m align-items-start">
+                                            <div>
+                                                <div className="text-black text-end ">{item.name}</div>
+                                                <div className="fw-medium text-end text-dark">[{item.varient}]</div>
+
+                                            </div>
+
+                                            {/* Quantity and Price */}
+                                            <div className="text-end">
+                                                <div className="d-flex  align-items-center border rounded-pill px-2 py-1 gap-2">
+                                                    <button className="btn p-1" onClick={() => dispatch(addToCart(item, item.quantity - 1, item.varient))}>
+                                                        <FontAwesomeIcon icon={faMinus} className="text-danger" />
                                                     </button>
-                                                    <span className="quantity-value">{item.quantity}</span>
-                                                    <button 
-                                                        className="quantity-button btn "
-                                                        onClick={() => dispatch(addToCart(item, item.quantity + 1, item.varient))}
-                                                        aria-label="Increase quantity"
-                                                    >
-                                                        <FontAwesomeIcon icon={faPlus} />
+                                                    <span className="fw-semibold text-black">{item.quantity}</span>
+                                                    <button className="btn  p-1" onClick={() => dispatch(addToCart(item, item.quantity + 1, item.varient))}>
+                                                        <FontAwesomeIcon icon={faPlus} className="text-success" />
                                                     </button>
                                                 </div>
                                             </div>
+
+                                            {/* Delete Button */}
+                                            <div className="fw text-black  mt-1">₹{item.price}</div>
+
+                                            <button className="btn text-danger" onClick={() => dispatch(deleteFromCart(item))}>
+                                                <FontAwesomeIcon icon={faTrash} />
+                                            </button>
+
                                         </div>
 
-                                        <div className="item-actions">
-                                            <button 
-                                                className="btn"
-                                                onClick={() => dispatch(deleteFromCart(item))}
-                                                aria-label="Remove item"
-                                            >
-                                                <FontAwesomeIcon icon={faTrash} className="delete-icon" />
-                                            </button>
-                                        </div>
+
                                     </div>
+                                    
                                 );
                             })
                         )}
                     </div>
-                </div>
-
-                <div className="col-12 col-md-6 col-lg-4 order-summary ms-3" style={{alignItems:"center"}}>
-                    <h2 className="order-header">Payment Method</h2>
-                    <div className="payment-summary">
-                        <h3 className="subtotal">SubTotal: ₹{subtotal}</h3>
-                        <h3 className="subtotal">To Pay: ₹{subtotal}</h3>
+                <div class="d-flex justify-content-between align-items-center p-3 bg-white ">
+                            <div>
+                                <div class="fs-4 fw-bold text-black">Total: ₹{subtotal} <i class="bi bi-info-circle"></i></div>
+                            </div>
+                            <button class="order-button w-50 mt-3" disabled={cartItems.length === 0} onClick={handlePlaceOrder}>Place Order  <Order subtotal={subtotal} /> </button>
+                        </div>
                     </div>
-
-                    <div className="payment-options">   
-                    </div>
-                    <button className='order-button w-100 mt-3' disabled={cartItems.length === 0} onClick={handlePlaceOrder}>
-                        Place order <Order subtotal={subtotal} />
-                    </button>
                 </div>
             </div>
-        </div>
+                :
+                <div class="cart-login " style={{ marginTop: "120px" }}>
+                    <div class="login-prompt fw-bold">Please Login</div>
+                    <div class="login-instruction">Please login to access the cart.</div>
+                    <a href="./login"><button class="login-btn w-100 " >Login</button></a>
+                </div>
+            }
+            </>
     );
 }
 

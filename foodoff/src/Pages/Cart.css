@@ -4,8 +4,9 @@
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
-    color: #333; 
+    color: black; 
     border-radius: 20px;
+  
     
 }
 
@@ -15,6 +16,8 @@
   flex-grow: 1;
   padding-right: 5px;
   margin-bottom: 10px;
+  flex-wrap: wrap;
+  padding: 1rem;
 }
 
 .item-image-container {
@@ -22,10 +25,12 @@
 }
 
 .item-image {
-    width: 180px;
-    height: 180px;
+    width: 60px;
+    height: 90px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 8px;
+    
+
 }
 
 .item-details {
@@ -35,9 +40,8 @@
 
 .item-name {
     margin: 0 0 5px 0;
-    font-size: 18px;
     color: #333;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .item-name small {
@@ -46,9 +50,9 @@
 }
 
 .item-price {
-    margin: 0 0 10px 0;
+    margin:  5px 0;
     color: #333;
-    font-size: 25px;
+    font-size: 23px;
     
 }
 
@@ -64,7 +68,7 @@
 .quantity-control svg {
     cursor: pointer;
     color: #333;
-    font-size: 15px;
+    font-size: 14px;
     transition: color 0.2s;
 }
 
@@ -105,45 +109,19 @@
 }
 
 .order-button {
-    background: green;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 80px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    transition: background 0.2s;
+  background-color: #ff2d73;
+  color: white; 
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 16px;
+  border: none;
+  transition: background-color 0.3s ease;
 }
 
 .order-button:hover {
-    background: #cc0000;
-
-
+  background-color: #fbc02d; /* Slightly darker yellow on hover */
 }
-
-
-/* Scrollbar styling */
-.cart-items-container::-webkit-scrollbar {
-  width: 5px;
-}
-
-.cart-items-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.cart-items-container::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
-
-.cart-items-container::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-
 
 .cart-item-container {
   display: flex;
@@ -151,10 +129,10 @@
   padding: 12px 0;
   border-bottom: 1px solid #eee;
   position: relative;
-  border: none; /* Remove border if any */
+  border: none; 
 }
 
-/* ... rest of your existing CSS ... */
+
 
 @media (max-width: 768px) {
   .cart-items-container {
@@ -165,4 +143,18 @@
   .order-summary {
       height: auto;
   }
+}
+.cart-item-container {
+  color: black;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.b{
+    background-color: #f9dddd;
+    
+     
 }

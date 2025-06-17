@@ -25,7 +25,7 @@ export const removeItemApi = async (id, reqHeader)=>{
 //update 
 export const updateItemAPI = async (id, reqBody) => {
     return await commonAPI("PUT", `${serverURL}/update-useritem/${id}`, reqBody);
-  };
+  }
  // get all user 
 export const getAllUserAPI = async()=>{
     return await commonAPI("GET", `${serverURL}/all-user`)

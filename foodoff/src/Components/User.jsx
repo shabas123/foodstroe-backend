@@ -20,7 +20,7 @@ export default function UserList() {
       <h2 className="text-center mb-4">User List</h2>
       {users.length === 0 ? (
         <div className="text-center">
-          <h5>No users found.</h5>
+          <h5>No users found</h5>
         </div>
       ) : (
         <div className="row">
@@ -28,12 +28,7 @@ export default function UserList() {
             <div key={user._id} className="col-12 col-md-6 col-lg-4 mb-4">
               <div className="card shadow-sm h-100">
                 <div className="card-body text-center d-flex flex-column">
-                  <img 
-                    src="https://cdn-icons-png.flaticon.com/512/149/149071.png" 
-                    alt="User Avatar" 
-                    className="rounded-circle mb-3" 
-                    style={{ width: '80px', height: '80px' }}
-                  />
+                  <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Avatar" className="rounded-circle mb-3" style={{ width: '80px', height: '80px' }}/>
                   <h5 className="card-title">{user.username}</h5>
                   <p className="card-text">{user.email}</p>
                   <span className={`badge ${user.isAdmin ? 'bg-success' : 'bg-secondary'}`}>
